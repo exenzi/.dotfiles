@@ -4,9 +4,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-vinegar'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
-
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " Lightline
@@ -14,10 +16,6 @@ call plug#end()
 let g:lightline = {
 	\'colorscheme': 'selenized_dark',
 	\ }
-
-if !has('gui_running')
-    set t_Co=256
-endif
 
 
 " Settings
@@ -42,12 +40,31 @@ set updatetime=300
 " hide tilde blank lines
 set fcs=eob:\ 
 
+set noswapfile
+set scrolloff=5
+
+
+
+
+" Python
+" ===============================================
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+
+
+
+
 
 
 " Mappings
 " ===============================================
 " edit vim config
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
+
+imap jj <Esc>
 
 " change focus to split 
 nmap <C-H> <C-W><C-H>
@@ -101,6 +118,24 @@ function! s:show_documentation()
         execute '!' . &keywordprg . " " . expand('<cword>')
     endif
 endfunction
+
+
+" fzf
+
+nmap <C-P> :Files<cr>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 " Auto-Commands
 " ===============================================
