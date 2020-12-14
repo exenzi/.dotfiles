@@ -5,12 +5,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'flazz/vim-colorschemes'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
-
-
-colorscheme nord " set colorscheme before lighline
 
 " Lightline
 " change color scheme
